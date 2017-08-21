@@ -1,0 +1,10 @@
+﻿var express = require('express');
+var apiRouter = require('./router/api.js');
+var port = process.env.port || 1337;
+var app=express();	
+app.use('/api',apiRouter);
+var bodyParser=require("body-parser");
+console.log(port);
+app.use(bodyParser.urlencoded({extended:true}));
+app.use(express.static("Views"));
+app.listen(port);
